@@ -1,0 +1,6 @@
+Switch(
+    lblGstatus.Text,
+    "CLOSED", Color.IndianRed,
+    "OPENED", Color.GreenYellow,
+    Color.Gray) 
+
