@@ -1,0 +1,1 @@
+ResetForm(frmSelectedDevice);Navigate(MainScreen,ScreenTransition.Fade);
