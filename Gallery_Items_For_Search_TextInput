@@ -1,0 +1,1 @@
+Search([@Live_Fuse], txtSearch.Text,'Device Identifier','Circuit Name','Fuse Status','Service Area')
