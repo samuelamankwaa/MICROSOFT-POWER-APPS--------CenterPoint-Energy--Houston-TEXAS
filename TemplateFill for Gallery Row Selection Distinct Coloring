@@ -1,0 +1,5 @@
+If(
+    ThisItem.IsSelected,
+    RGBA(0, 120, 215, 0.15),   // Light-blue fill for the selected row
+    RGBA(0, 0, 0, 0)           // Transparent for non-selected rows
+)
