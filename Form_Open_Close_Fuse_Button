@@ -1,0 +1,2 @@
+Set(varStatus, radFieldStatus_2.Selected.Value);
+Patch(Live_Fuse,Gallery1_1.Selected,{'Fuse Status': varStatus});
