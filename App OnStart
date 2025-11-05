@@ -1,0 +1,36 @@
+Refresh('Live_Fuse');
+ClearCollect(colFuseLocal, Sort(FirstN('Live_Fuse', 1000), 'Modified On', SortOrder.Descending));
+ClearCollect(colSelected, []);
+Set(varCurrentTime, Now());
+//Set Current User and GUID
+Set(
+    varCurrentUser,
+    LookUp(
+        Users,
+        ThisRecord.'User Name' = User().Email
+    )
+);
+//Create Security Role Collection
+ClearCollect(
+    secRoleList,
+    Blank()
+);
+
+// -------------------------------------------------
+// 1. Create a temporary workbook (runs only once)
+// -------------------------------------------------
+ForAll(
+    varCurrentUser.'Security Roles (systemuserroles_association)' As role,
+    Collect(
+        secRoleList,
+        {roleID: role.Role}
+    )
+);
+Set(varCrewGUID, "fcbca236-b49f-f011-b41c-6045bd03a5b9");
+Set(varControllerGUID, "28a7daeb-c9a2-f011-bbd3-6045bd0a043d");
+/*Set(varUser, {
+   Username: User().FullName,
+    Role: varUserRole,
+    TruckID: "",
+    CrewPhone: ""
+});*/
