@@ -1,0 +1,3 @@
+Set(varStatus, radFieldStatus_1.Selected.Value);
+Patch(Live_Fuse,Gallery1_1.Selected,{'Fuse Status': varStatus});
+//UpdateIf(Live_Fuse,ThisRecord.'Import Sequence Number' = Gallery1_1.Selected.'Import Sequence Number', {'Fuse Status':"CLOSED"});
