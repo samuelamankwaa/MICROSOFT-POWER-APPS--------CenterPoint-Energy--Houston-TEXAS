@@ -1,0 +1,4 @@
+Set(varAckStatus, radAckStatus_1.Selected.Value);
+Patch(Live_Fuse, Gallery1_1.Selected, {'Ack Status': varAckStatus});
+Patch(Live_Fuse, Gallery1_1.Selected, {'Ack User': User().FullName}, {'Ack Time': Now()});
+If (varAckStatus = "ACKN", Patch(Live_Fuse, Gallery1_1.Selected, {'Ack User': User().FullName}, {'Ack Time': Now()}), Patch(Live_Fuse, Gallery1_1.Selected, {'Ack User': ""}, {'Ack Time': Blank()})) 
