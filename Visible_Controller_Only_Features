@@ -1,0 +1,6 @@
+  CountRows(
+        Filter(
+            secRoleList,
+            ThisRecord.roleID = GUID(varControllerGUID)
+        )
+    ) > 0
