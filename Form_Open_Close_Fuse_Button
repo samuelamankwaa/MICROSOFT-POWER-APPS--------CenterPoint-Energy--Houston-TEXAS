@@ -1,2 +1,8 @@
 Set(varStatus, radFieldStatus_2.Selected.Value);
 Patch(Live_Fuse,Gallery1_1.Selected,{'Fuse Status': varStatus});
+Patch(Live_Fuse, Gallery1_1.Selected, {'Opened by': User().FullName});
+Patch(Live_Fuse, Gallery1_1.Selected, {'Ack Status': "UNACKN"});
+If (varStatus = "CLOSED", Patch(Live_Fuse, Gallery1_1.Selected, {'Opened by': User().FullName}, {'Opened by': " "})) 
+//UpdateIf(Live_Fuse,ThisRecord.'Import Sequence Number' = Gallery1_1.Selected.'Import Sequence Number', {'Fuse Status':"CLOSED"});
+//Patch(Live_Fuse, Gallery1_1.Selected, {'Opened by': User().FullName}, {'Crew Cellphone': (Office365Users.UserPhotoMetadata(User().EntraObjectId)});
+//UpdateIf(Live_Fuse,ThisRecord.'Import Sequence Number' = Gallery1_1.Selected.'Import Sequence Number', {'Fuse Status':"CLOSED"});
