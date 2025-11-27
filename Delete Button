@@ -1,0 +1,30 @@
+Remove(
+    Live_Fuse,
+    LookUp(
+        Live_Fuse,
+        'Device Identifier' = Gallery1_1.Selected.'Device Identifier'
+    )
+)
+
+============================================================================================================================
+============================================================================================================================
+
+
+visible (For Controller Only)
+-----------------------------
+
+
+    CountRows(
+        Filter(
+            secRoleList,
+            ThisRecord.roleID = GUID(varControllerGUID)
+        )
+    ) > 0
+
+
+
+
+
+
+
+
