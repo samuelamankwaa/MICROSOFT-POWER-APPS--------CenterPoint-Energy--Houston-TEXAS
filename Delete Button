@@ -29,8 +29,17 @@ If(
     Notify("Nothing selected", NotificationType.Warning),
     Set(varShowDeleteConfirm, true)
 )
+--------------------------------------------------
+Make a group = grpDeleteConfirm
+=============================================================================================================================
+=============================================================================================================================
+Permanently delete this device?
+-------------------------------
+Visible = varShowDeleteConfirm
 
-
+Cancel
+------
+Visible = varShowDeleteConfirm
 
 
 
