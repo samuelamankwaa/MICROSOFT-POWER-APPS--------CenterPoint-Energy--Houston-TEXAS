@@ -21,8 +21,14 @@ visible (For Controller Only)
         )
     ) > 0
 
+==============================================================================================================================
+==============================================================================================================================
 
-
+If(
+    IsBlank(Gallery1_1.Selected.'Device Identifier'),
+    Notify("Nothing selected", NotificationType.Warning),
+    Set(varShowDeleteConfirm, true)
+)
 
 
 
