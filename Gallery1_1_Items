@@ -1,1 +1,4 @@
 Search([@Live_Fuse], txtSearch.Text,'Device Identifier','Circuit Name','Fuse Status','Service Area')
+===========================================================================================================
+===========================================================================================================
+Sort(Search([@Live_Fuse], txtSearch.Text,'Device Identifier','Circuit Name','Fuse Status','Service Area','Ack Status','Ack User','Truck Number / Crew ID'),'Modified On',SortOrder.Descending)
