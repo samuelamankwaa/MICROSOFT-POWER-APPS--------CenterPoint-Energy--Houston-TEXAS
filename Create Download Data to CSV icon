@@ -1,0 +1,37 @@
+ForAll(Gallery1_1.AllItems As currentitem,
+    Collect(
+        collDataExport,
+        {
+            FuseID:currentitem.'Device Identifier',
+            FuseStatus:currentitem.'Fuse Status',
+            Circuit:currentitem.'Circuit Name',
+            ServiceCenter:currentitem.'Service Area',
+            SectionNumber:currentitem.'Section Number',
+            Acknowledged:currentitem.'Ack Status',
+            AckTime:currentitem.'Ack Time',
+            AckUser:currentitem.'Ack User',
+            CrewCellphone:currentitem.'Crew Cellphone', 
+            LastModified:currentitem.'Modified On', 
+            ModifiedBy:currentitem.'Modified By',
+            OpenedBy:currentitem.'Opened by', 
+            OpenedTime:currentitem.Opened_time,
+            CrewIDTruckNumber:currentitem.'Truck Number / Crew ID'
+        }
+    )
+);
+'PowerAppV2->Compose,CreateCSVtable,Createfile,Createsharelin...'.Run(
+    JSON(
+        collDataExport,
+        JSONFormat.IgnoreBinaryData
+    ),
+    User().Email
+);
+Clear(collDataExport);
+
+
+
+
+
+
+
+
