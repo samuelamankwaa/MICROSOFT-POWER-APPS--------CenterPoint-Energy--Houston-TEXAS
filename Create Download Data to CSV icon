@@ -28,6 +28,68 @@ ForAll(Gallery1_1.AllItems As currentitem,
 );
 Clear(collDataExport);
 
+=============================================================================================================
+=============================================================================================================
+
+ok good. From your code given  "// OnSelect of Export button
+
+
+// 1) Clear old collections
+Clear(collDataExport);
+Clear(colExportSource);
+
+
+// 2) Get all search results from Dataverse directly
+ClearCollect(
+    colExportSource,
+    Filter(
+        'Live_Fuse',
+        IsBlank(txtSearch.Text) ||
+        StartsWith('Circuit Name', txtSearch.Text)
+        /* + any other filters the gallery uses */
+    )
+);
+
+
+// 3) Shape data for export
+ForAll(
+    colExportSource As currentitem,
+    Collect(
+        collDataExport,
+        {
+            FuseID: currentitem.'Device Identifier',
+            FuseStatus: currentitem.'Fuse Status',
+            Circuit: currentitem.'Circuit Name',
+            ServiceCenter: currentitem.'Service Area',
+            SectionNumber: currentitem.'Section Number',
+            Acknowledged: currentitem.'Ack Status',
+            AckTime: currentitem.'Ack Time',
+            AckUser: currentitem.'Ack User',
+            CrewCellphone: currentitem.'Crew Cellphone',
+            LastModified: currentitem.'Modified On',
+            ModifiedBy: currentitem.'Modified By',
+            OpenedBy: currentitem.'Opened by',
+            OpenedTime: currentitem.Opened_time,
+            CrewIDTruckNumber: currentitem.'Truck Number / Crew ID'
+        }
+    )
+);
+
+
+// 4) Call your flow
+'PowerAppV2->Compose,CreateCSVtable,Createfile,Createsharelin...'.Run(
+    JSON(
+        collDataExport,
+        JSONFormat.IgnoreBinaryData
+    ),
+    User().Email
+);
+
+
+// 5) Optional cleanup
+Clear(collDataExport);
+Clear(colExportSource);," I want get a notification in the App (eg. "Fuse data download was successful") anytime the download icon is clicked. 
+
 
 
 
