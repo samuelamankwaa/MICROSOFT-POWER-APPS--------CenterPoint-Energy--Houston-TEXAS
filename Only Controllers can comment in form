@@ -1,0 +1,9 @@
+If(
+    CountRows(
+        Filter(
+            secRoleList,
+            ThisRecord.roleID = GUID(varControllerGUID)
+        )
+    ) > 0,
+    DisplayMode.Edit,
+    DisplayMode.Disabled)
